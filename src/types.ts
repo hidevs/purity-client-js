@@ -3,30 +3,52 @@ import { AxiosInstance } from "axios";
 export type ApiClient = AxiosInstance;
 
 export type FilterOperator =
-  | '$eq' | '$eqc' | '$ne' | '$lt' | '$lte' | '$gt' | '$gte'
-  | '$in' | '$notIn' | '$contains' | '$notContains' | '$containsc'
-  | '$notContainsc' | '$null' | '$notNull' | '$between' | '$notBetween'
-  | '$startsWith' | '$startsWithc' | '$endsWith' | '$endsWithc'
-  | '$or' | '$and';
+    | "$eq" /** Equal */
+    | "$eqc" /** Equal (case-sensitive) */
+    | "$ne" /** Not equal */
+    | "$lt" /** Less than */
+    | "$lte" /** Less than or equal to */
+    | "$gt" /** Greater than */
+    | "$gte" /** Greater than or equal to */
+    | "$in" /** Included in an array */
+    | "$notIn" /** Not included in an array */
+    | "$contains" /** Contains */
+    | "$notContains" /** Does not contain */
+    | "$containsc" /** Contains (case-sensitive) */
+    | "$notContainsc" /** Does not contain (case-sensitive) */
+    | "$null" /** Is null */
+    | "$notNull" /** Is not null */
+    | "$between" /** Is between */
+    | "$notBetween" /** Is not between */
+    | "$startsWith" /** Starts with */
+    | "$startsWithc" /** Starts with (case-sensitive) */
+    | "$endsWith" /** Ends with */
+    | "$endsWithc"; /** Ends with (case-sensitive) */
+
+export type LogicalOperator = "$or" /** Joins the filters in an "or" expression */ | "$and"; /** Joins the filters in an "and" expression */
 
 export type FilterValue = string | number | boolean | null | Array<string | number>;
 
-type LogicalOperator = "$and" | "$or";
-
 type FilterCondition = {
-  [K in FilterOperator]?: FilterValue;
+    [K in FilterOperator]?: FilterValue;
 };
 
-type Filter = {
-  [key: string]: FilterCondition | Filter | Filter[];
+// Recursive type definition for nested filters
+type NestedFilter = {
+    [key: string]: FilterCondition | NestedFilter;
+};
+
+// Allow mixture of logical operators and regular filters
+export type Filter = {
+    [K in LogicalOperator]?: (Filter | NestedFilter)[];
 } & {
-  [K in LogicalOperator]?: Filter[];
+    [key: string]: FilterCondition | NestedFilter | (Filter | NestedFilter)[];
 };
 
 export type QueryParams = {
-  filters?: Filter;
-  sort?: string | string[];
-  pagination?: { page?: number; pageSize?: number };
-  fields?: string[];
-  populate?: string | string[];
-}
+    filters?: Filter;
+    sort?: string | string[];
+    pagination?: { page?: number; pageSize?: number };
+    fields?: string[];
+    populate?: string | string[];
+};

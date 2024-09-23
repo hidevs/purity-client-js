@@ -1,35 +1,35 @@
 {
-  "name": "purity-client",
-  "version": "0.1.0",
-  "description": "Purity Client: Filter and Sort Laravel Queries Elegantly",
-  "main": "src/index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write './**/*.{js,ts,json,yaml}'"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hidevs/purity-client-js.git"
-  },
-  "keywords": [
-    "HiDevs",
-    "Purity",
-    "jalallinux"
-  ],
-  "author": "HiDevs Team",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/qs": "^6.9.16",
-    "prettier": "^3.1.1",
-    "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "axios": "^1.7.7",
-    "qs": "^6.13.0"
-  },
-  "bugs": {
-    "url": "https://github.com/hidevs/purity-client-js/issues"
-  },
-  "homepage": "https://github.com/hidevs/purity-client-js#readme"
+    "name": "purity-client",
+    "version": "0.1.0",
+    "description": "Purity Client: Filter and Sort Laravel Queries Elegantly",
+    "main": "src/index.ts",
+    "scripts": {
+        "format": "prettier --write './**/*.{js,ts,json,yaml}'"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hidevs/purity-client-js.git"
+    },
+    "keywords": [
+        "HiDevs",
+        "Purity",
+        "jalallinux"
+    ],
+    "author": "HiDevs Team",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/axios": "^0.14.0",
+        "@types/qs": "^6.9.16",
+        "prettier": "^3.1.1",
+        "typescript": "^5.3.3"
+    },
+    "dependencies": {
+        "axios": "^1.7.7",
+        "axios-mock-adapter": "^2.0.0",
+        "qs": "^6.13.0"
+    },
+    "bugs": {
+        "url": "https://github.com/hidevs/purity-client-js/issues"
+    },
+    "homepage": "https://github.com/hidevs/purity-client-js#readme"
 }

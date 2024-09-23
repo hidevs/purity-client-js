@@ -5,14 +5,11 @@ import qs from "qs";
 export class PurityClient {
     private client: ApiClient;
 
-    constructor(baseURL: string, config?: CreateAxiosDefaults) {
-        this.client = axios.create({
-            baseURL,
-            ...config,
-        });
+    constructor(baseURL: string, config: Omit<CreateAxiosDefaults, "baseURL"> = {}) {
+        this.client = axios.create({ baseURL, ...config });
     }
 
-    private buildQueryString(params: QueryParams): string {
+    protected buildQueryString(params: QueryParams): string {
         return qs.stringify(params, { encodeValuesOnly: true });
     }
 

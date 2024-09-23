@@ -1,2 +1,2 @@
 export * from "./types";
-export * from "./PurityClient"
+export * from "./PurityClient";
