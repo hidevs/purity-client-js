@@ -16,6 +16,29 @@ import { PurityClient } from 'purity-client-js';
 const apiClient = new PurityClient('http://localhost:8000/api')
 ```
 
+## Basic Sorting
+Queries can accept a sort parameter that allows sorting on one or multiple fields with the following syntax's.
+
+`GET /api/articles?sort[0]=title&sort[1]=slug:desc`
+
+```ts
+apiClient.get('articles', {
+    sort: ['title', 'slug:desc']
+})
+```
+
+## Sort by Relationships
+All the usages of basic sorting are applicable. Use dot(.) notation to apply relationship in the following format.
+
+`GET /api/posts?sort=tags.name:asc`
+
+```ts
+apiClient.get('articles', {
+    sort: ['tags.name:asc']
+})
+```
+
+
 ## Eq Filter
 Find users with 'John' as their first name
 
