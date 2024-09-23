@@ -9,11 +9,30 @@ yarn add purity-client-js
 
 # Usage
 
+## Simple Laravel Controller
+```php
+public function index(Request $request)
+{
+    return Model::filter()->sort()->paginate($request->query('perPage'));
+}
+```
+
 ## Create Client
 ```ts
 import { PurityClient } from 'purity-client-js';
 
 const apiClient = new PurityClient('http://localhost:8000/api')
+```
+
+## Laravel Pagination
+Pass `page`, `perPage` for default laravel `paginate` method
+
+`GET /api/articles?page=1&perPage=15`
+
+```ts
+apiClient.get('articles', {
+    page: 1, perPage: 15
+})
 ```
 
 ## Basic Sorting
