@@ -18,32 +18,15 @@ export class PurityClient {
         return this.client.get<T, R, D>(`${url}?${queryString}`, config);
     }
 
-    async post<T = any, R = AxiosResponse<T>, D = any>(
-        url: string,
-        data?: D,
-        params: QueryParams = {},
-        config?: AxiosRequestConfig<D>,
-    ): Promise<R> {
-        const queryString = this.buildQueryString(params);
-        return this.client.post<T, R, D>(`${url}?${queryString}`, data, config);
+    async post<T = any, R = AxiosResponse<T>, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<R> {
+        return this.client.post<T, R, D>(url, data, config);
     }
 
-    async put<T = any, R = AxiosResponse<T>, D = any>(
-        url: string,
-        data?: D,
-        params: QueryParams = {},
-        config?: AxiosRequestConfig<D>,
-    ): Promise<R> {
-        const queryString = this.buildQueryString(params);
-        return this.client.put<T, R, D>(`${url}?${queryString}`, data, config);
+    async put<T = any, R = AxiosResponse<T>, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<R> {
+        return this.client.put<T, R, D>(url, data, config);
     }
 
-    async delete<T = any, R = AxiosResponse<T>, D = any>(
-        url: string,
-        params: QueryParams = {},
-        config?: AxiosRequestConfig<D>,
-    ): Promise<R> {
-        const queryString = this.buildQueryString(params);
-        return this.client.delete<T, R, D>(`${url}?${queryString}`, config);
+    async delete<T = any, R = AxiosResponse<T>, D = any>(url: string, config?: AxiosRequestConfig<D>): Promise<R> {
+        return this.client.delete<T, R, D>(url, config);
     }
 }

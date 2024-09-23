@@ -45,10 +45,13 @@ export type Filter = {
     [key: string]: FilterCondition | NestedFilter | (Filter | NestedFilter)[];
 };
 
+type SortDirection = "asc" | "desc";
+
+type SortField = string | `${string}:${SortDirection}` | `${string}.${string}:${SortDirection}`;
+
 export type QueryParams = {
+    page?: number;
+    perPage?: number;
     filters?: Filter;
-    sort?: string | string[];
-    pagination?: { page?: number; pageSize?: number };
-    fields?: string[];
-    populate?: string | string[];
+    sort?: SortField | SortField[];
 };
