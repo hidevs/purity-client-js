@@ -1,5 +1,22 @@
+# Install
+```shell
+npm install purity-client-js
 
-### Eq Filter
+pnpm install purity-client-js
+
+yarn add purity-client-js
+```
+
+# Usage
+
+## Create Client
+```ts
+import { PurityClient } from 'purity-client-js';
+
+const apiClient = new PurityClient('http://localhost:8000/api')
+```
+
+## Eq Filter
 Find users with 'John' as their first name
 
 `GET /api/users?filters[name][$eq]=JalalLinuX`
@@ -14,7 +31,7 @@ apiClient.get('users', {
 })
 ```
 
-### In Filter
+## In Filter
 Find multiple restaurants with ids 3, 6, 8
 
 `GET /api/restaurants?filters[id][$in][0]=3&filters[id][$in][1]=6&filters[id][$in][2]=8`
@@ -29,7 +46,7 @@ apiClient.get('restaurants', {
 })
 ```
 
-### Between Filter
+## Between Filter
 Find users with age between 20 and 30
 
 `GET /api/users?filters[age][$between][0]=20&filters[age][$between][1]=30`
@@ -44,7 +61,7 @@ apiClient.get('users', {
 })
 ```
 
-### Complex Filtering
+## Complex Filtering
 Complex filtering is combining multiple filters using advanced methods such as combining $and & $or. This allows for more flexibility to request exactly the data needed.
 
 Find books with two possible dates and a specific author.
@@ -75,7 +92,7 @@ apiClient.get('books', {
 })
 ```
 
-### Relation Filtering
+## Relation Filtering
 Relation filtering is filtering on a relation's fields.
 
 Find restaurants owned by a chef who belongs to a 5-star restaurant
@@ -96,7 +113,7 @@ apiClient.get('restaurants', {
 })
 ```
 
-### Complex Relation Filtering
+## Complex Relation Filtering
 Complex relation filtering is combining multiple relation filters using advanced methods such as combining $and & $or. This allows for more flexibility to request exactly the data needed.
 
 Find restaurants owned by a chef who belongs to a 5-star restaurant and has a specific cuisine
