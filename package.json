@@ -19,11 +19,14 @@
   "author": "HiDevs Team",
   "license": "MIT",
   "devDependencies": {
-      "prettier": "^3.1.1",
-      "typescript": "^5.3.3"
+    "@types/axios": "^0.14.0",
+    "@types/qs": "^6.9.16",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
-      "axios": "^1.6.4"
+    "axios": "^1.7.7",
+    "qs": "^6.13.0"
   },
   "bugs": {
     "url": "https://github.com/hidevs/purity-client-js/issues"
