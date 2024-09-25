@@ -1,3 +1,5 @@
+### NodeJS API Client for [abbasudo/laravel-purity](https://github.com/abbasudo/laravel-purity)
+
 # Install
 ```shell
 npm install purity-client-js
